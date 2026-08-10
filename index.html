@@ -1,35 +1,504 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Story Arc Studio | Official</title>
 
-  <meta name="description" content="Story Arc Studio — Official home of Eclipse Hollow and future stories.">
+  <meta name="description" content="Story Arc Studio — a creative studio for stories, books, films and unforgettable worlds. Discover Eclipse Hollow by Samiul Tanzim.">
 
   <style>
-
     * {
-
       margin: 0;
-
       padding: 0;
-
       box-sizing: border-box;
-
     }
 
     html {
-
       scroll-behavior: smooth;
-
     }
 
     body {
-
       font-family: Georgia, "Times New Roman", serif;
+      background: #080808;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 8, 8, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #252525;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #ffffff;
+    }
+
+    .logo span {
+      color: #e32626;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: #cccccc;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #e32626;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 25px;
+      background:
+        radial-gradient(circle at center, #351010 0%, #120808 35%, #080808 70%);
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero small {
+      color: #e32626;
+      letter-spacing: 5px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 10vw, 100px);
+      line-height: 0.95;
+      margin: 20px 0;
+      letter-spacing: 4px;
+    }
+
+    .hero h1 span {
+      color: #e32626;
+    }
+
+    .hero p {
+      color: #bdbdbd;
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 14px 30px;
+      background: #e32626;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      background: #ff3a3a;
+      transform: translateY(-2px);
+    }
+
+    /* SECTIONS */
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 25px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title small {
+      color: #e32626;
+      font-family: Arial, sans-serif;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-top: 8px;
+    }
+
+    /* BOOK */
+
+    .book {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .book-cover {
+      text-align: center;
+    }
+
+    .book-cover img {
+      width: 100%;
+      max-width: 430px;
+      border-radius: 5px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      transition: 0.4s;
+    }
+
+    .book-cover img:hover {
+      transform: scale(1.02);
+    }
+
+    .book-info h3 {
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: 15px;
+    }
+
+    .book-info .author {
+      color: #d0d0d0;
+      font-family: Arial, sans-serif;
+      margin-bottom: 20px;
+    }
+
+    .book-description {
+      color: #aaa;
+      font-family: Arial, sans-serif;
+      margin-bottom: 25px;
+    }
+
+    .genre {
+      display: inline-block;
+      border: 1px solid #444;
+      padding: 7px 12px;
+      margin: 4px;
+      border-radius: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      color: #ccc;
+    }
+
+    .price {
+      margin-top: 30px;
+      font-size: 34px;
+      font-weight: bold;
+      color: #e32626;
+    }
+
+    .price span {
+      color: #888;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      font-weight: normal;
+    }
+
+    .order-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 32px;
+      background: #e32626;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    .order-button:hover {
+      background: #ff3a3a;
+    }
+
+    /* ABOUT */
+
+    .about {
+      text-align: center;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .about p {
+      color: #aaa;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #252525;
+      text-align: center;
+      padding: 45px 20px;
+      color: #777;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: #eee;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 750px) {
+
+      .nav-links {
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      .logo {
+        font-size: 17px;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      .book {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .book-info {
+        text-align: center;
+      }
+
+      .book-info h3 {
+        font-size: 38px;
+      }
+
+      .section-title h2 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="nav-container">
+
+      <div class="logo">
+        STORY<span>ARC</span> STUDIO
+      </div>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#books">Books</a>
+        <a href="#about">About</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero" id="home">
+
+    <div class="hero-content">
+
+      <small>Welcome to</small>
+
+      <h1>
+        STORY <span>ARC</span><br>
+        STUDIO
+      </h1>
+
+      <p>
+        Stories that disappear into the darkness,
+        worlds that stay with you forever.
+      </p>
+
+      <a href="#books" class="hero-button">
+        Explore Our Story
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- BOOK SECTION -->
+
+  <section id="books">
+
+    <div class="section-title">
+
+      <small>Featured Release</small>
+
+      <h2>Our First Story</h2>
+
+    </div>
+
+
+    <div class="book">
+
+      <div class="book-cover">
+
+        <img
+          src="eclipse-hollow.jpg"
+          alt="Eclipse Hollow book cover"
+        >
+
+      </div>
+
+
+      <div class="book-info">
+
+        <h3>ECLIPSE<br>HOLLOW</h3>
+
+        <div class="author">
+          Written by <strong>Samiul Tanzim</strong>
+        </div>
+
+        <p class="book-description">
+          A mysterious town. A crimson eclipse.
+          Disappearances that happen once every fifty years.
+          And something waiting in the darkness.
+        </p>
+
+        <div>
+
+          <span class="genre">Mystery</span>
+          <span class="genre">Horror</span>
+          <span class="genre">Adventure</span>
+
+        </div>
+
+        <div class="price">
+          ৳200
+          <span>only</span>
+        </div>
+
+        <a href="#order" class="order-button">
+          Order the Book
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="section-title">
+
+      <small>Who We Are</small>
+
+      <h2>Story Arc Studio</h2>
+
+    </div>
+
+    <div class="about">
+
+      <p>
+        Story Arc Studio is an independent creative studio
+        dedicated to creating original stories, books and
+        cinematic worlds.
+      </p>
+
+      <br>
+
+      <p>
+        We believe every story has an arc —
+        and every arc deserves to be remembered.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ORDER -->
+
+  <section id="order">
+
+    <div class="section-title">
+
+      <small>Available Now</small>
+
+      <h2>Eclipse Hollow</h2>
+
+    </div>
+
+    <div class="about">
+
+      <p>
+        Get your copy of <strong>Eclipse Hollow</strong>
+        for only <strong>৳200</strong>.
+      </p>
+
+      <p style="margin-top:15px;">
+        Contact Story Arc Studio to place your order.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 <strong>Story Arc Studio</strong>.
+      All rights reserved.
+    </p>
+
+    <p style="margin-top:8px;">
+      Created by Samiul Tanzim
+    </p>
+
+  </footer>
+
+</body>
+</html>
